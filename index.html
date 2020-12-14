@@ -1,0 +1,220 @@
+pp<!DOCTYPE html>
+<html lang="en_US">
+<!-- UPDATE_FOR_USE? -->
+<!-- Web audio examples: https://mdn.github.io/webaudio-examples/stereo-panner-node/
+		https://github.com/mdn/webaudio-examples/blob/master/stereo-panner-node/index.html
+-->
+<head>
+	<title>Phantasmauris</title>
+
+	<base href="UPDATE_FOR_USE" target="_self" />
+
+	<meta charset="UTF-8" />
+	<meta name="description" content="Phantasmauris is a project by Hyunji Jung. Supported by CBK Rotterdam. Developed in 2020. Design by Noemi Biro" />
+	<meta name="keywords" content="sound recording Rotterdam space walk" />
+	<meta name="author" content="Hyunji Jung" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- <meta http-equiv="refresh" content="30"> UPDATE_FOR_USE? -->
+
+	<link rel="stylesheet" type="text/css" href="css/default.css" /> <!-- UPDATE_FOR_USE? -->
+	<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="javascript.js"></script>
+</head>
+
+<body>
+	<!-- WRAPPER OPEN -->
+	<div id="wrapper">
+		<!-- <div id="wrapper" onmousemove="myFunction(event)" onmousedown="myFunction(event)"> -->
+		<!-- HEADER OPEN -->
+		<div id="header">
+			<!-- <div id="logo">
+					<img class="UPDATE_FOR_USE" src="/img/UPDATE_FOR_USE" alt="UPDATE_FOR_USE" />
+				</div> -->
+
+			<!-- <div id="nav">
+				<ul>
+					<li><a class="active" href="#">Home</a></li>
+					<li><a href="news.html">News</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>  -->
+			<!-- NAV CLOSE -->
+		</div> <!-- HEADER CLOSE -->
+		<!-- CONTENT OPEN -->
+		<div id="content">
+			<div id="temp">
+				<div id="static">
+					<img src="/img/holder5-01.png">
+				</div>
+				<div id="tempInfo">
+					<p> Phantasmauris is a project by <a href="https://hyunjijung.com/" target="_blank">Hyunji Jung.</a>  <br> Supported by CBK Rotterdam, 2020 <br> <span style="font-size:0.7rem">Design by <a href="https://noemibiro.com/" target="_blank">Noemi Biro</span>
+				</div>
+			</div>
+			<audio id="audiostyle" controls="controls" autoplay="true" loop>
+				<!-- <source src="https://sounds-mp3.com/i-en-clap-in-unison-in-a-small-room" type="audio/ogg"> -->
+				<source src="sound/frontsound.mp3" type="audio/mp3">
+			</audio>
+			<!-- <h2>Set stereo panning</h2>
+			<input class="panning-control" type="range" min="-1" max="1" step="0.1" value="0">
+			<span class="panning-value">0</span> -->
+			<p id="demo"></p>
+		</div> <!-- CONTENT CLOSE -->
+		<!-- FOOTER OPEN -->
+		<div id="footer">
+
+		</div> <!-- FOOTER CLOSE -->
+	</div> <!-- WRAPPER CLOSE -->
+	<script>
+		// var musicrange = 0;
+		 // var oldrounded = 0;
+		var mousePos;
+		// document.querySelector('audio').volume = 0.5;
+		document.onmousemove = myFunction;
+		setInterval(getMousePosition, 500);
+
+		function myFunction(event) {
+			var dot, eventDoc, doc, body, pageX, pageY;
+
+			event = event || window.event; // IE-ism
+
+			// If pageX/Y aren't available and clientX/Y are,
+			// calculate pageX/Y - logic taken from jQuery.
+			// (This is to support old IE)
+			if (event.pageX == null && event.clientX != null) {
+				eventDoc = (event.target && event.target.ownerDocument) || document;
+				doc = eventDoc.documentElement;
+				body = eventDoc.body;
+
+				event.pageX = event.clientX +
+					(doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+					(doc && doc.clientLeft || body && body.clientLeft || 0);
+				event.pageY = event.clientY +
+					(doc && doc.scrollTop || body && body.scrollTop || 0) -
+					(doc && doc.clientTop || body && body.clientTop || 0);
+			}
+
+			mousePos = {
+				x: event.pageX,
+				y: event.pageY
+			};
+		}
+
+		function getMousePosition() {
+			var pos = mousePos;
+			if (!pos) {
+				// We haven't seen any movement yet
+			} else {
+				var w = window.innerWidth;
+				map_range(pos.x, 0, w, -1, 1);
+				// Use pos.x and pos.y
+			}
+		}
+
+		// var x = e.clientX;
+		// var y = e.clientY;
+		// var coor = "Coordinates: (" + x + "," + y + ")";
+		// document.getElementById("demo").innerHTML = coor;
+		// var xy = x + y;
+		// var w = window.innerWidth;
+		// map_range(x, 0, w, -1, 1);
+		//
+		//
+		// 	function clearCoor() {
+		// 		document.getElementById("demo").innerHTML = "";
+		// 	}
+		function map_range(value, low1, high1, low2, high2) {
+		    // return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+
+			 var	musicrange = low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+			  	var rounded = Math.round(musicrange * 10) / 10;
+					if(rounded > musicrange){
+					// if (rounded == oldrounded){
+					// 	panAudio(rounded);
+					// 	var oldrounded = rounded;
+					// } else if(rounded > oldrounded){
+					// 	var stepper = oldrounded + 0.1;
+					// 	panAudio(stepper);
+					// 	var oldrounded = rounded;
+					// }else if(rounded < oldrounded){
+					// 		var stepper = oldrounded - 0.1;
+					// 		panAudio(stepper);
+					// 		var oldrounded = rounded;
+					// 	}
+				//console.log(rounded);
+				panAudio(musicrange);
+			} else {
+				panAudio(rounded);
+			}
+		}
+
+	function panAudio(roundeder) {
+		let audioCtx;
+		const myAudio = document.querySelector('audio');
+		// myAudio.volume = 0.5;
+		//const panControl = document.querySelector('.panning-control');
+		//const panControl = roundeder;
+		//const panValue = document.querySelector('.panning-value');
+
+
+
+		// Create audio context if it doesn't already exist
+		if (!audioCtx) {
+			audioCtx = new window.AudioContext();
+		}
+
+		// Create a MediaElementAudioSourceNode
+		// Feed the HTMLMediaElement into it
+		let source = audioCtx.createMediaElementSource(myAudio);
+
+		// Create a stereo panner
+		let panNode = audioCtx.createStereoPanner();
+
+		// Event handler function to increase panning to the right and left
+		// when the slider is moved
+		// setInterval(panToMouse, 1000);
+		//  function panToMouse() {
+		// 	panNode.pan.value = roundeder;
+		// 	console.log(panNode.pan.value);
+		// }
+	//	panControl.oninput = function() {
+		//	panNode.pan.value = panControl.value;
+		//	panValue.innerHTML = panControl.value;
+		//	 panNode.pan.value = roundeder;
+				panNode.pan.setValueAtTime(roundeder, audioCtx.currentTime);
+				//console.log(panNode.pan.value);
+			// panValue.innerHTML = roundeder;
+	//	}
+
+		// connect the AudioBufferSourceNode to the gainNode
+		// and the gainNode to the destination, so we can play the
+		// music and adjust the panning using the controls
+		source.connect(panNode);
+		panNode.connect(audioCtx.destination);
+	//	console.log(panNode);
+		}
+		//}
+	</script>
+	<!-- START ANALYTICS -->
+	<!-- GOOGLE OPEN -->
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UPDATE_FOR_USE', 'auto');
+		ga('send', 'pageview');
+	</script> <!-- GOOGLE CLOSE -->
+	<!-- END ANALYTICS -->
+</body>
+
+</html>

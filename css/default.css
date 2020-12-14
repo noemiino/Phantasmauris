@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+html{
+  /* height: 100vh;
+  width: 100vw; */
+  font-family: 'Open Sans', sans-serif;
+  overflow:hidden;
+}
+
+body {
+
+}
+
+#wrapper{
+  height: auto;
+  width: auto;
+  /* width: 200px;
+height: 100px; */
+/* border: 1px solid black; */
+}
+#content{
+  /* width: 100vw; */
+}
+#temp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+#static{
+
+  /* width: 100vw; */
+  align-self: center;
+  font-size: 1rem;
+  /* background-image: url("/img/holder2-01.png"); */
+}
+#static img{
+  /* width: 100vw; */
+  height: 75vh;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+#tempInfo{
+  align-self: center;
+  text-align: center;
+}
+#audiostyle{
+  background-color: cyan;
+  bottom: 3vh;
+  position: absolute;
+  height: 4vh;
+}
+h1 {
+
+}
+
+h2 {
+
+}
+
+p {
+
+}
+
+ul {
+
+}
+
+/*li group start*/
+li {
+
+}
+
+li a {
+
+}
+
+li a:hover {
+
+}
+/* li group end */
+
+/* a group start */
+a {
+text-decoration: none;
+color: #A0B2C4;
+}
+
+a:link {
+
+}
+
+a:active {
+
+}
+
+a:visited {
+
+}
+
+a:hover {
+
+}
+/* a group end */
+
+img {
+
+}
+
+#wrapper {
+
+}
+
+#header {
+
+}
+
+#logo {
+
+}
+
+#nav {
+
+}
+
+/* #nav a group start */
+#nav a {
+
+}
+
+#nav a:link {
+
+}
+
+#nav a:active {
+
+}
+
+#nav a:visited {
+
+}
+
+#nav a:hover {
+
+}
+/* #nav a group end */
+
+#content {
+
+}
+
+#footer {
+
+}
+
+.active {
+
+}
+
+.UPDATE_FOR_USE img {
+
+}
+@media screen and (max-width: 768px) {
+  #static img{
+    height: 60vh;
+  }
+  #audiostyle{
+    bottom: 2vh;
+    position: absolute;
+    height: 2vh;
+  }
+}
