@@ -114,7 +114,7 @@ function updateScene() {
   var audio = document.getElementById('audio');
   var source = document.getElementById('audioSource');
   //source.src = elm.getAttribute('data-value');
-  var sourceLinkAudio = "/sound/" + currentScene.id + "/" + "1.mp3";
+  var sourceLinkAudio = "sound/" + currentScene.id + "/" + "1.mp3";
   source.src = sourceLinkAudio;
   audio.play();
 }
