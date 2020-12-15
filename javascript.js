@@ -5,6 +5,14 @@ var saveGPSlongitude = 0;
 var scenes = [];
 var currentScene = { id: " " };
 
+
+window.onload = function() {
+  getLocation();
+  getScenes();
+  saveGPSlatitude = activeGPSlatitude;
+  saveGPSlongitude = activeGPSlongitude
+}
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showPosition);
@@ -13,20 +21,68 @@ function getLocation() {
   }
 }
 
+function getScenes() {
+
+  //let fetchRes = fetch('/api/Scenes');
+  let fetchRes = fetch('scenes.json');
+  //console.log(fetchRes)
+  fetchRes.then(res => res.json())
+    .then(d => {
+      scenes = d.map(
+        function (item) {
+          // console.log(item);
+          var parts = item.split('_');
+          return {
+            lat: parseFloat(parts[0]),
+            lng: parseFloat(parts[1]),
+            id: parts[2]
+          }
+        }
+      )
+      console.log(d) // writes the array
+
+    })
+    .then(
+      function () {
+        //findNearest();
+        // here call the findnearest function
+        setTimeout(function () {
+          getScenes();
+
+        }, 30000);
+      }
+    )
+}
+
 function showPosition(position) {
     activeGPSlatitude = position.coords.latitude;
-    console.log(activeGPSlatitude +"activeGPSlatitude");
+    //console.log(activeGPSlatitude +"activeGPSlatitude");
     activeGPSlongitude = position.coords.longitude;
-    console.log(activeGPSlongitude +"activeGPSlongitude");
+    //console.log(activeGPSlongitude +"activeGPSlongitude");
     findNearest();
 }
 
-window.onload = function() {
-  getLocation();
-  getScenes();
-  saveGPSlatitude = activeGPSlatitude;
-  saveGPSlongitude = activeGPSlongitude
+//calculating distace from the current pos and the available locations in the list
+function findNearest() {
+  var newScene;
+  var minDistance = 5; // distance of x km
+  scenes.forEach(item => {
+    var dist = calcDistance(item.lng, item.lat, activeGPSlongitude, activeGPSlatitude);
+    //console.log(dist +"=distance");
+    if (dist < minDistance) {
+      minDistance = dist;
+      newScene = item;
+      //console.log(" yes");
+    }
+  });
+  if (newScene) {
+    if (currentScene.id != newScene.id) {
+      currentScene = newScene;
+      updateScene();
+    }
+  }
 }
+
 
 //calculates the distance in km from two sets of coordinates
 function calcDistance(lon1, lat1, lon2, lat2) { //activepgslon, activegpslat
@@ -46,62 +102,19 @@ if (typeof (Number.prototype.toRad) === "undefined") {
     return this * Math.PI / 180;
   }
 }
-//calculating distace from the current pos and the available locations in the list
-function findNearest() {
-  var newScene;
-  var minDistance = 5; // distance of x km
-  scenes.forEach(item => {
-    var dist = calcDistance(item.lng, item.lat, activeGPSlongitude, activeGPSlatitude);
-    console.log(dist +"=distance");
-    if (dist < minDistance) {
-      minDistance = dist;
-      newScene = item;
-      console.log(" yes");
-    }
-  });
-  if (newScene) {
-    if (currentScene.id != newScene.id) {
-      currentScene = newScene;
-      updateScene();
-    }
-  }
-}
+
 
 //into the html
 function updateScene() {
   console.log("you made it to the", currentScene);
   // here to play
-}
-
-function getScenes() {
-
-  //let fetchRes = fetch('/api/Scenes');
-  let fetchRes = fetch('scenes.json');
-  //console.log(fetchRes)
-  fetchRes.then(res => res.json())
-    .then(d => {
-      scenes = d.map(
-        function (item) {
-          // console.log(item);
-          var parts = item.split('_');
-          return {
-            id: item,
-            lat: parseFloat(parts[0]),
-            lng: parseFloat(parts[1])
-          }
-        }
-      )
-      console.log(d) // writes the array
-
-    })
-    .then(
-      function () {
-        //findNearest();
-        // here call the findnearest function
-        setTimeout(function () {
-          getScenes();
-
-        }, 30000);
-      }
-    )
+  var audioId = currentScene.id;
+  console.log(audioId + " currentscene.id");
+  //  console.log(newScene.id = "newScene.id");
+  var audio = document.getElementById('audio');
+  var source = document.getElementById('audioSource');
+  //source.src = elm.getAttribute('data-value');
+  var sourceLinkAudio = "/sound/" + currentScene.id + "/" + "1.mp3";
+  source.src = sourceLinkAudio;
+  audio.play();
 }
