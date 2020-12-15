@@ -4,8 +4,32 @@ var saveGPSlatitude = 0;
 var saveGPSlongitude = 0;
 var scenes = [];
 var currentScene = { id: " " };
-var idLocations = ["Teilingerstraat", "Nieuwe-Binnenweg"];
-var infoLocations = ["This is where the studio is","Nieuwe Binnenweg, where the city thrives"];
+var idLocations = ["Teilingerstraat",
+                    "Quarantaine-terrain",
+                    "Waalhaven",
+                    "Breeplein-kerk",
+                    "Mosque-west",
+                    "Het-Park",
+                    "Maastunnel",
+                    "Kralingse-bos",
+                    "Nieuwe-Binnenweg",
+                    "Blaak",
+                    "Witte-de-Withstraat",
+                    "Rotterdam-Centraal-station",
+                    "Rotterdam-Noord-station"];
+var infoLocations = ["This is where the studio is",
+                      "Quarantaine is a place of waves",
+                      "Waalhaven industry supplier",
+                      "Breeplein, religious",
+                      "Mosque in the west",
+                      "Het Park with the big tower",
+                      "Maastunnel, under the water, above is traffic",
+                      "Kralingse-bos, with the nature and walks",
+                      "Nieuwe Binnenweg, where the city thrives",
+                      "Blaak is where the Market is",
+                      "Witte de Withstraat, a going out place full of culture",
+                      "At the Central Station everyone is busy",
+                      "Rotterdam Noord, a stop away"];
 
 
 window.onload = function() {
@@ -122,14 +146,36 @@ function updateScene() {
   audio.play();
 
   // change inner html for location
-  var i = 0;
+  //var i = 0;
   //for(i<6) {
-    if(idLocations[i] = currentScene.id)
-    {
-      var locationTempInfo = infoLocations[i];
-    } else{
+    var matchyIndex;
+    // var matvhyId;
+    //idLocations.forEach(findText);
+    // idLocations.forEach(myFunction);
+    //
+    // function myFunction(item, index) {
+    //   document.getElementById("tempInfo").innerHTML += index + ":" + item + "<br>";
+    // }
+
+    //function findText(item, index){
+    //for(var index = 0; index < idLocations.length; index++) {
+    //  if(idLocations[index] = currentScene.id){
+    matchyIndex = idLocations.indexOf(currentScene.id);
+    console.log(matchyIndex);
+    //     console.log(idLocations[index] + " idLocations[index]");
+    //     console.log(currentScene.id + " currentScene.id");
+    //     console.log(index + " index");
+    //     matchyIndex = index;
+    //     console.log(matchyIndex + " matchyIndex");
+    //   }else{
+    //     console.log("not");
+    //   }
+    // }
+    //if(idLocations[i] = currentScene.id)
+
+      var locationTempInfo = infoLocations[matchyIndex];
+
       //i++;
-    }
 //  }
   var locationInfo = document.getElementById('tempInfo').innerHTML = locationTempInfo;
 }
