@@ -4,6 +4,8 @@ var saveGPSlatitude = 0;
 var saveGPSlongitude = 0;
 var scenes = [];
 var currentScene = { id: " " };
+var idLocations = ["Teilingerstraat", "Nieuwe-Binnenweg"];
+var infoLocations = ["This is where the studio is","Nieuwe Binnenweg, where the city thrives"];
 
 
 window.onload = function() {
@@ -116,5 +118,18 @@ function updateScene() {
   //source.src = elm.getAttribute('data-value');
   var sourceLinkAudio = "sound/" + currentScene.id + "/" + "1.mp3";
   source.src = sourceLinkAudio;
+  audio.load();
   audio.play();
+
+  // change inner html for location
+  var i = 0;
+  //for(i<6) {
+    if(idLocations[i] = currentScene.id)
+    {
+      var locationTempInfo = infoLocations[i];
+    } else{
+      //i++;
+    }
+//  }
+  var locationInfo = document.getElementById('tempInfo').innerHTML = locationTempInfo;
 }
