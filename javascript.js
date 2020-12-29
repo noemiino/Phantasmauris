@@ -44,6 +44,7 @@ window.onload = function() {
 }
 
 function getLocation() {
+  console.log("getting location");
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showPosition);
   } else {
@@ -69,7 +70,7 @@ function getScenes() {
           }
         }
       )
-      console.log(d) // writes the array
+      //console.log(d) // writes the array
 
     })
     .then(
@@ -86,9 +87,9 @@ function getScenes() {
 
 function showPosition(position) {
     activeGPSlatitude = position.coords.latitude;
-    //console.log(activeGPSlatitude +"activeGPSlatitude");
+    console.log(activeGPSlatitude +"activeGPSlatitude");
     activeGPSlongitude = position.coords.longitude;
-    //console.log(activeGPSlongitude +"activeGPSlongitude");
+    console.log(activeGPSlongitude +"activeGPSlongitude");
     findNearest();
 }
 
@@ -98,11 +99,11 @@ function findNearest() {
   var minDistance = 5; // distance of x km
   scenes.forEach(item => {
     var dist = calcDistance(item.lng, item.lat, activeGPSlongitude, activeGPSlatitude);
-    //console.log(dist +"=distance");
+    console.log(dist +"=distance");
     if (dist < minDistance) {
       minDistance = dist;
       newScene = item;
-      //console.log(" yes");
+      console.log(" yes");
     }
   });
   if (newScene) {
