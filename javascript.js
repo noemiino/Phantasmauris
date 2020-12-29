@@ -17,7 +17,8 @@ var idLocations = ["Teilingerstraat",
                     "Witte-de-Withstraat",
                     "Rotterdam-Centraal-station",
                     "Rotterdam-Noord-station",
-                    "Ro"];
+                    "Ro",
+                    "Korea"];
 var infoLocations = ["This is where the studio is",
                       "Quarantaine is a place of waves",
                       "Waalhaven industry supplier",
@@ -31,7 +32,8 @@ var infoLocations = ["This is where the studio is",
                       "Witte de Withstraat, a going out place full of culture",
                       "At the Central Station everyone is busy",
                       "Rotterdam Noord, a stop away",
-                      "Romania, where Noemi is"];
+                      "Romania, where Noemi is",
+                      "Korea, this is where Hyunji is"];
 
 
 window.onload = function() {
