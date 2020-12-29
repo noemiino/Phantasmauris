@@ -70,12 +70,12 @@ function getScenes() {
           }
         }
       )
-      //console.log(d) // writes the array
+      console.log(d) // writes the array
 
     })
     .then(
       function () {
-        findNearest();
+        //findNearest();
         // here call the findnearest function
         setTimeout(function () {
           getScenes();
@@ -90,7 +90,7 @@ function showPosition(position) {
     console.log(activeGPSlatitude +"activeGPSlatitude");
     activeGPSlongitude = position.coords.longitude;
     console.log(activeGPSlongitude +"activeGPSlongitude");
-    //findNearest();
+    findNearest();
 }
 
 //calculating distace from the current pos and the available locations in the list
