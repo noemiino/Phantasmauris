@@ -16,7 +16,8 @@ var idLocations = ["Teilingerstraat",
                     "Blaak",
                     "Witte-de-Withstraat",
                     "Rotterdam-Centraal-station",
-                    "Rotterdam-Noord-station"];
+                    "Rotterdam-Noord-station",
+                    "Ro"];
 var infoLocations = ["This is where the studio is",
                       "Quarantaine is a place of waves",
                       "Waalhaven industry supplier",
@@ -29,7 +30,8 @@ var infoLocations = ["This is where the studio is",
                       "Blaak is where the Market is",
                       "Witte de Withstraat, a going out place full of culture",
                       "At the Central Station everyone is busy",
-                      "Rotterdam Noord, a stop away"];
+                      "Rotterdam Noord, a stop away",
+                      "Romania, where Noemi is"];
 
 
 window.onload = function() {
