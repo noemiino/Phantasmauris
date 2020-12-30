@@ -1,4 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+
+@font-face{
+  font-family: Arthemys;
+  src:url(/dependencies/ArthemysDisplay-Light.otf);
+}
+/* loader css */
+div#load_screen{
+	background: #fff;
+	opacity: 1;
+	position: fixed;
+  z-index:10;
+	top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+#contain-load-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  height: 100vh;
+  align-self: center;
+}
+div#load_screen > div#loading{
+	color:#FFF;
+	width:80vw;
+	height:24px;
+  position: absolute;
+  margin-top: 20vh;
+  padding-left: 6vw;
+  padding-right: 6vw;
+  align-self: center;
+}
+#loading{
+  margin-top: 20vh;
+  padding-left: 6vw;
+  padding-right: 6vw;
+  align-self: center;
+  background: white;
+  border-radius: 25px;
+  width: 70vw;
+  font-size: 1.2em;
+  text-align: center;
+}
+#load-img img{
+  width: 100vw;
+}
+#div-enter{
+  position: absolute;
+  align-self: center;
+  margin-top: 40vh;
+  text-align: center;
+  background: white;
+  border-radius: 25px;
+  width: 45vw;
+}
+#enter-website-button{
+    font-family: 'Arthemys';
+    font-size: 2.9em;
+    color: #A0B2C4;
+    width: 25vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    text-align: center;
+}
+
+/* basics */
+button {
+    background-color: transparent;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+}
+/* css properties general */
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.active{
+  color: burlywood;
+}
+/* This applies from 0px to 768px */
 html{
   /* height: 100vh;
   width: 100vw; */
@@ -7,16 +96,70 @@ html{
 }
 
 body {
-
+  margin: 0;
 }
 
 #wrapper{
   height: auto;
   width: auto;
+  width: 100%;
+  position: relative;
   /* width: 200px;
 height: 100px; */
 /* border: 1px solid black; */
 }
+/* navigation bar  */
+.navbar__container {
+    padding-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 1.5em;
+}
+.navbar__right-items {
+    display: flex;
+    justify-content: space-between;
+}
+/* .navbar__menu::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -.3vw;
+    opacity: 0;
+    transform: translateX(15px) scale(.1);
+    transition: opacity .4s ease,transform .4s ease;
+  } */
+.navbar__menu {
+      font-family: Arthemys;
+      text-transform: uppercase;
+      line-height: 1em;
+      color: inherit;
+      display: flex;
+      position: relative;
+      align-items: center;
+      font-size: .9em;
+      color: #A0B2C4;
+  }
+/* about page */
+#about{
+  padding-left: 6vw;
+  padding-right: 6vw;
+  height: 100vh;
+}
+/* locations info */
+#locations{
+
+}
+#locations img{
+  height: 100vh;
+  overflow-x: scroll;
+}
+/* rest of content with interchanging content */
 #content{
   /* width: 100vw; */
 }
@@ -30,12 +173,12 @@ height: 100px; */
 
   /* width: 100vw; */
   align-self: center;
-  font-size: 1rem;
+  font-size: 1em;
   /* background-image: url("/img/holder2-01.png"); */
 }
 #static img{
-  /* width: 100vw; */
-  height: 75vh;
+  width: 100vw;
+  /* height: 60vh; */
   /* margin-left: auto;
   margin-right: auto; */
 }
@@ -48,6 +191,11 @@ height: 100px; */
   bottom: 3vh;
   position: absolute;
   height: 4vh;
+}
+#audiostyle{
+  bottom: 2vh;
+  position: absolute;
+  height: 2vh;
 }
 h1 {
 
@@ -71,12 +219,17 @@ li {
 }
 
 li a {
+  font-size: 2em;
+  line-height:1.4em;
 
 }
-
-li a:hover {
-
+li span{
+  font-size: 2em;
+  line-height:1.4em;
+  color: #A0B2C4;
+  cursor: pointer;
 }
+
 /* li group end */
 
 /* a group start */
@@ -111,15 +264,15 @@ img {
 }
 
 #header {
-
+  font-family: 'Arthemys';
 }
 
 #logo {
 
 }
 
-#nav {
-
+#nav li{
+  list-style-type: none;
 }
 
 /* #nav a group start */
@@ -152,20 +305,19 @@ img {
 
 }
 
-.active {
-
-}
 
 .UPDATE_FOR_USE img {
 
 }
-@media screen and (max-width: 768px) {
+/* From 768px wide onwards  */
+@media screen and (min-width: 768px) {
   #static img{
-    height: 60vh;
+    height: 75vh;
   }
-  #audiostyle{
-    bottom: 2vh;
-    position: absolute;
-    height: 2vh;
+  .navbar__menu:hover{
+    color: black;
+  }
+  li a:hover {
+    color: burlywood;
   }
 }

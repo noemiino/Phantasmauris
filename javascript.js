@@ -36,13 +36,92 @@ var infoLocations = ["This is where the studio is",
                       "Korea, this is where Hyunji is"];
 
 
+// window loader, enter, remove div when ready
+window.addEventListener("load", function(){
+	var load_screen = document.getElementById("load_screen");
+	//document.body.removeChild(load_screen);
+  var enterButton =   document.getElementById('enter-website-button');
+  enterButton.classList.toggle("show");
+  enterButton.classList.toggle("hide");
+  enterButton.addEventListener("click", function(){
+    document.body.removeChild(load_screen);
+  });
+});
+
 window.onload = function() {
   getLocation();
   getScenes();
   saveGPSlatitude = activeGPSlatitude;
-  saveGPSlongitude = activeGPSlongitude
+  saveGPSlongitude = activeGPSlongitude;
+
+  //javascript related to ui and ux
+  var menuButton = document.getElementById('menu-button');
+  menuButton.addEventListener("click", clickedMenu);
+  document.getElementById('js-nav-open').classList.toggle("show");
+  document.getElementById('nav').classList.toggle("hide");
 }
 
+//js nav menu ui & ux
+function clickedMenu() {
+  //alert ("button clicked!");
+  var openMenu = document.getElementById('js-nav-open');
+  openMenu.classList.toggle("hide");
+  document.getElementById('js-nav-close').classList.toggle("show");
+  openMenu.classList.toggle("show");
+  document.getElementById('js-nav-close').classList.toggle("hide");
+
+  document.getElementById('nav').classList.toggle("show");
+  document.getElementById('nav').classList.toggle("hide");
+
+  document.getElementById('content').classList.toggle("hide");
+  document.getElementById('listen').classList.toggle("active");
+  document.getElementById('js-nav-close').classList.toggle("active");
+
+  var aboutButton = document.getElementById('about_button');
+  aboutButton.addEventListener("click", clickedAbout);
+
+  var locationsButton = document.getElementById('locations_button');
+  locationsButton.addEventListener("click", clickedLocations);
+}
+
+function clickedAbout() {
+  document.getElementById('about').classList.toggle("hide");
+  // document.getElementById('js-nav-close').classList.toggle("show");
+  document.getElementById('js-nav-close').classList.add("hide");
+  document.getElementById('js-nav-close').classList.remove("show");
+  document.getElementById('js-nav-open').classList.add("show");
+  document.getElementById('js-nav-open').classList.remove("hide");
+
+  document.getElementById('content').classList.toggle("hide");
+  // var menuButton= document.getElementById('js-nav-close');
+  // menuButton.innerHTML = "About";
+  document.getElementById('nav').classList.add("hide");
+  document.getElementById('nav').classList.remove("show");
+  var menuButton = document.getElementById('menu-button');
+  menuButton.addEventListener("click", clickedMenuClose);
+  // menuButton.classList.toggle("active");
+}
+function clickedMenuClose() {
+  document.getElementById('about').classList.add("hide");
+  document.getElementById('locations').classList.add("hide");
+}
+
+function clickedLocations(){
+  document.getElementById('locations').classList.toggle("hide");
+
+  document.getElementById('js-nav-close').classList.add("hide");
+  document.getElementById('js-nav-close').classList.remove("show");
+  document.getElementById('js-nav-open').classList.add("show");
+  document.getElementById('js-nav-open').classList.remove("hide");
+
+  document.getElementById('content').classList.toggle("hide");
+  document.getElementById('nav').classList.add("hide");
+  document.getElementById('nav').classList.remove("show");
+  var menuButton = document.getElementById('menu-button');
+  menuButton.addEventListener("click", clickedMenuClose);
+}
+
+//js related to location and sound
 function getLocation() {
   console.log("getting location");
   if (navigator.geolocation) {
@@ -70,7 +149,7 @@ function getScenes() {
           }
         }
       )
-      console.log(d) // writes the array
+      //console.log(d) // writes the array
 
     })
     .then(
@@ -99,7 +178,7 @@ function findNearest() {
   var minDistance = 5; // distance of x km
   scenes.forEach(item => {
     var dist = calcDistance(item.lng, item.lat, activeGPSlongitude, activeGPSlatitude);
-    console.log(dist +"=distance");
+    //console.log(dist +"=distance");
     if (dist < minDistance) {
       minDistance = dist;
       newScene = item;
