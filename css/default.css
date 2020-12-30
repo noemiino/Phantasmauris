@@ -52,11 +52,11 @@ div#load_screen > div#loading{
 #div-enter{
   position: absolute;
   align-self: center;
-  margin-top: 40vh;
+  margin-top: 60vh;
   text-align: center;
   background: white;
   border-radius: 25px;
-  width: 45vw;
+  width: 50vw;
 }
 #enter-website-button{
     font-family: 'Arthemys';
@@ -117,6 +117,9 @@ height: 100px; */
     padding-left: 2vw;
     padding-right: 2vw;
     font-size: 1.5em;
+    position: fixed;
+    top: 0;
+    width: 96vw;
 }
 .navbar__right-items {
     display: flex;
@@ -145,29 +148,46 @@ height: 100px; */
       font-size: .9em;
       color: #A0B2C4;
   }
+#nav{
+  margin-top: 4vh;
+}
 /* about page */
 #about{
   padding-left: 6vw;
   padding-right: 6vw;
+  margin-top: 4vh;
   height: 100vh;
 }
 /* locations info */
 #locations{
-
+  margin-top: 4vh;
 }
 #locations img{
-  height: 100vh;
-  overflow-x: scroll;
+  /* height: 100vh; */
+  /* max-height: 90vh;
+  max-width: 90vw; */
+}
+#map-container{
+  width: 98vw;
+  height: 98vh;
+  margin-left: auto;
+  margin-right: auto;
+  background:url(/img/map_s.png);
+}
+#map-container img{
+  width: 2vh;
+  height: 2vh;
 }
 /* rest of content with interchanging content */
 #content{
   /* width: 100vw; */
+  height: 100vh;
 }
 #temp{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
 }
 #static{
 
@@ -185,17 +205,32 @@ height: 100px; */
 #tempInfo{
   align-self: center;
   text-align: center;
+  margin-top: 1vh;
+}
+#audio-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
 }
 #audio{
-  background-color: cyan;
-  bottom: 3vh;
+  /* background-color: #A0B2C4; */
+  /* bottom: 3vh; */
   position: absolute;
-  height: 4vh;
+  /* height: 7vh; */
+  align-self: center;
+  border-radius: 25px;
+}
+#audioSource{
+
 }
 #audiostyle{
   bottom: 2vh;
   position: absolute;
   height: 2vh;
+}
+#controlBar{
+  width: 100vw;
 }
 h1 {
 
@@ -297,9 +332,7 @@ img {
 }
 /* #nav a group end */
 
-#content {
 
-}
 
 #footer {
 

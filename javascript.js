@@ -120,6 +120,17 @@ function clickedLocations(){
   var menuButton = document.getElementById('menu-button');
   menuButton.addEventListener("click", clickedMenuClose);
 }
+//js for locations map
+$(document).ready(function() {
+  $("#map-container").bind('mousemove', function(e) {
+
+    $(this).css({
+      backgroundPosition: e.pageX + 'px ' + e.pageY + 'px'
+    });
+
+  });
+});
+
 
 //js related to location and sound
 function getLocation() {
@@ -228,6 +239,10 @@ function updateScene() {
   source.src = sourceLinkAudio;
   audio.load();
   audio.play();
+
+  var mapImage = "scenes/" + currentScene.id + "/" + "1.png";
+  var mapImageSource = document.getElementById('change-img');
+  mapImageSource.src = mapImage;
 
   // change inner html for location
   //var i = 0;
