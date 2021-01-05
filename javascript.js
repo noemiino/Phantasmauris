@@ -121,15 +121,15 @@ function clickedLocations(){
   menuButton.addEventListener("click", clickedMenuClose);
 }
 //js for locations map
-$(document).ready(function() {
-  $("#map-container").bind('mousemove', function(e) {
-
-    $(this).css({
-      backgroundPosition: e.pageX + 'px ' + e.pageY + 'px'
-    });
-
-  });
-});
+// $(document).ready(function() {
+//   $("#map-container").bind('mousemove', function(e) {
+//
+//     $(this).css({
+//       backgroundPosition: e.pageX + 'px ' + e.pageY + 'px'
+//     });
+//
+//   });
+// });
 
 
 //js related to location and sound
