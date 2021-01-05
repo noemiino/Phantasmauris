@@ -49,6 +49,7 @@ window.addEventListener("load", function(){
 });
 
 window.onload = function() {
+  clickCounter();
   getLocation();
   getScenes();
   saveGPSlatitude = activeGPSlatitude;
@@ -131,6 +132,34 @@ function clickedLocations(){
 //   });
 // });
 
+//hiding load if already visited - store if user already visited - not show the infowindow
+function clickCounter() {
+  if (typeof (Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount) + 1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    //document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+  } else {
+    //document.getElementById("result").innerHTML = "Sorry, you will see the info multiple times";
+  }
+  if (localStorage.clickcount <= 1) {
+    // infoWindow();
+    document.getElementById("load_screen").classList.add('show');
+    document.getElementById("load_screen").classList.remove('hide');
+  } else {
+    var load_screen = document.getElementById("load_screen");
+    document.body.removeChild(load_screen);
+    // document.getElementById("load_screen").classList.add('hide');
+    // document.getElementById("load_screen").classList.remove('show');
+  }
+  console.log(localStorage.clickcount);
+  if (localStorage.clickcount >= 2) {
+    // document.getElementById("crop").classList.add('hide');
+    // document.getElementById("crop").classList.remove('show');
+  }
+}
 
 //js related to location and sound
 function getLocation() {
