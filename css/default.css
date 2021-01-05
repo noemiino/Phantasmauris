@@ -2,7 +2,7 @@
 
 @font-face{
   font-family: Arthemys;
-  src:url(/dependencies/ArthemysDisplay-Light.otf);
+  src:url(/dependencies/Arthemys.otf);
 }
 /* loader css */
 div#load_screen{
@@ -172,7 +172,7 @@ height: 100px; */
   height: 98vh;
   margin-left: auto;
   margin-right: auto;
-  background:url(/img/map_s.png);
+  background:url(/img/map-all.png);
 }
 #map-container img{
   width: 2vh;
