@@ -82,6 +82,7 @@ button {
     margin: 0;
     border: 0;
     cursor: pointer;
+    tap-highlight-color: transparent;
 }
 /* css properties general */
 .show{
@@ -128,7 +129,7 @@ height: 100px; */
     width: 96vw;
     z-index: 9;
     background-color: white;
-
+    tap-highlight-color: transparent;
 }
 .navbar__right-items {
     display: flex;
@@ -198,9 +199,11 @@ height: 100px; */
 #locations_button{
   color: #A0B2C4;
   cursor:pointer;
+  tap-highlight-color: transparent;
 }
 #infoSwitcherUI{
   cursor: pointer;
+  tap-highlight-color: transparent;
 }
 #locations{
   margin-top: 7vh;
@@ -314,6 +317,7 @@ li {
 li a {
   font-size: 2em;
   line-height:1.4em;
+  tap-highlight-color: transparent;
 
 }
 li span{
@@ -329,6 +333,7 @@ li span{
 a {
 text-decoration: none;
 color: #A0B2C4;
+tap-highlight-color: transparent;
 }
 
 a:link {
