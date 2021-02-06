@@ -1,11 +1,13 @@
+var i = 1;
 var activeGPSlatitude = 0;
 var activeGPSlongitude = 0;
 var saveGPSlatitude = 0;
 var saveGPSlongitude = 0;
 var scenes = [];
 var currentScene = { id: " " };
-var idLocations = ["Teilingerstraat",
+var idLocations = [
                     "Quarantaine-terrain",
+                    // "Teilingerstraat",
                     "Waalhaven",
                     "Breeplein-kerk",
                     "Mosque-west",
@@ -13,27 +15,30 @@ var idLocations = ["Teilingerstraat",
                     "Maastunnel",
                     "Kralingse-bos",
                     "Nieuwe-Binnenweg",
-                    "Blaak",
+                    "Blaak", //laurenskerk
                     "Witte-de-Withstraat",
                     "Rotterdam-Centraal-station",
                     "Rotterdam-Noord-station",
                     "Ro",
-                    "Korea"];
-var infoLocations = ["This is where the studio is",
-                      "Quarantaine is a place of waves",
-                      "Waalhaven industry supplier",
-                      "Breeplein, religious",
-                      "Mosque in the west",
-                      "Het Park with the big tower",
-                      "Maastunnel, under the water, above is traffic",
-                      "Kralingse-bos, with the nature and walks",
-                      "Nieuwe Binnenweg, where the city thrives",
-                      "Blaak is where the Market is",
-                      "Witte de Withstraat, a going out place full of culture",
-                      "At the Central Station everyone is busy",
-                      "Rotterdam Noord, a stop away",
+                    "Korea",
+                    "empty"];
+var infoLocations = [
+                      "Turbulent Stream (Quarantine beach)",
+                      // "This is where the studio is",
+                      "Turbulent Stream (Waalhaven)",
+                      "Residual (Breeplein)",
+                      "Residual (Mosque West)",
+                      "Night Ride (Het Park)",
+                      "Night Ride (Maastunnel)",
+                      "Night Ride (Kralingse Bos)",
+                      "Passage (Nieuwe Binnenweg)",
+                      "Residual (Laurenskerk)",
+                      "Passage (Witte de Withstraat / Westblaak)",
+                      "Velocity of Traverse (Central station)",
+                      "Velocity of Traverse (Noord station)",
                       "Romania, where Noemi is",
-                      "Korea, this is where Hyunji is"];
+                      "Korea, this is where Hyunji is",
+                      "Visit map section to see the closest available location."];
 
 
 // window loader, enter, remove div when ready
@@ -58,6 +63,8 @@ window.onload = function() {
   //javascript related to ui and ux
   var menuButton = document.getElementById('menu-button');
   menuButton.addEventListener("click", clickedMenu);
+  var locationsInfoButton = document.getElementById('locationsInfo');
+  locationsInfoButton.addEventListener("click", clickedI);
   document.getElementById('js-nav-open').classList.toggle("show");
   document.getElementById('nav').classList.toggle("hide");
 }
@@ -65,61 +72,85 @@ window.onload = function() {
 //js nav menu ui & ux
 function clickedMenu() {
   //alert ("button clicked!");
-  var openMenu = document.getElementById('js-nav-open');
-  openMenu.classList.toggle("hide");
-  document.getElementById('js-nav-close').classList.toggle("show");
-  openMenu.classList.toggle("show");
-  document.getElementById('js-nav-close').classList.toggle("hide");
+  if(document.getElementById('locations').classList.contains("hide") == true){
+    var openMenu = document.getElementById('js-nav-open');
+    openMenu.classList.toggle("hide");
+    document.getElementById('js-nav-close').classList.toggle("show");
+    openMenu.classList.toggle("show");
+    document.getElementById('js-nav-close').classList.toggle("hide");
 
-  document.getElementById('nav').classList.toggle("show");
-  document.getElementById('nav').classList.toggle("hide");
+    // document.getElementById('nav').classList.toggle("show");
+    // document.getElementById('nav').classList.toggle("hide");
 
-  document.getElementById('content').classList.toggle("hide");
-  document.getElementById('listen').classList.toggle("active");
-  document.getElementById('js-nav-close').classList.toggle("active");
+    // document.getElementById('nav').classList.toggle("show");
+    // document.getElementById('nav').classList.toggle("hide");
 
-  var aboutButton = document.getElementById('about_button');
-  aboutButton.addEventListener("click", clickedAbout);
 
-  var locationsButton = document.getElementById('locations_button');
-  locationsButton.addEventListener("click", clickedLocations);
+    document.getElementById('content').classList.toggle("hide");
+    document.getElementById('listen').classList.toggle("active");
+    document.getElementById('js-nav-close').classList.toggle("active");
+
+    // var aboutButton = document.getElementById('about_button');
+    // aboutButton.addEventListener("click", clickedAbout);
+
+    var locationsButton = document.getElementById('locations_button');
+    locationsButton.addEventListener("click", clickedLocations);
+
+    document.getElementById('about').classList.toggle("hide");
+  } else {
+    document.getElementById('locations').classList.toggle("hide");
+    var openMenu = document.getElementById('js-nav-open');
+    openMenu.classList.toggle("hide");
+    document.getElementById('js-nav-close').classList.toggle("show");
+    openMenu.classList.toggle("show");
+    document.getElementById('js-nav-close').classList.toggle("hide");
+  }
+}
+function clickedI() {
+  //document.getElementById('infoMap').classList.toggle("hide");
+  i++;
+  if(i % 2 == 0){
+    var mapImage = "img/" + "map-info2.jpg";
+    var mapImageSource = document.getElementById('oldimg');
+    mapImageSource.src = mapImage;
+
+    var mapImageUI = "img/" + "buttons-03.png";
+    var mapImageSourceUI = document.getElementById('infoSwitcherUI');
+    mapImageSourceUI.src = mapImageUI;
+  } else {
+    var mapImage = "img/" + "map-grey.jpg";
+    var mapImageSource = document.getElementById('oldimg');
+    mapImageSource.src = mapImage;
+
+    var mapImageUI = "img/" + "buttons-02.png";
+    var mapImageSourceUI = document.getElementById('infoSwitcherUI');
+    mapImageSourceUI.src = mapImageUI;
+  }
+
 }
 
-function clickedAbout() {
-  document.getElementById('about').classList.toggle("hide");
-  // document.getElementById('js-nav-close').classList.toggle("show");
-  document.getElementById('js-nav-close').classList.add("hide");
-  document.getElementById('js-nav-close').classList.remove("show");
-  document.getElementById('js-nav-open').classList.add("show");
-  document.getElementById('js-nav-open').classList.remove("hide");
-
-  document.getElementById('content').classList.toggle("hide");
-  // var menuButton= document.getElementById('js-nav-close');
-  // menuButton.innerHTML = "About";
-  document.getElementById('nav').classList.add("hide");
-  document.getElementById('nav').classList.remove("show");
-  var menuButton = document.getElementById('menu-button');
-  menuButton.addEventListener("click", clickedMenuClose);
-  // menuButton.classList.toggle("active");
-}
 function clickedMenuClose() {
   document.getElementById('about').classList.add("hide");
   document.getElementById('locations').classList.add("hide");
+  document.getElementById('content').classList.toggle("hide");
+  console.log("still");
 }
 
 function clickedLocations(){
   document.getElementById('locations').classList.toggle("hide");
-
-  document.getElementById('js-nav-close').classList.add("hide");
-  document.getElementById('js-nav-close').classList.remove("show");
-  document.getElementById('js-nav-open').classList.add("show");
-  document.getElementById('js-nav-open').classList.remove("hide");
+  document.getElementById('about').classList.toggle("hide");
+  // document.getElementById('js-nav-close').classList.add("hide");
+  // document.getElementById('js-nav-close').classList.remove("show");
+  // document.getElementById('js-nav-open').classList.add("show");
+  // document.getElementById('js-nav-open').classList.remove("hide");
 
   document.getElementById('content').classList.toggle("hide");
-  document.getElementById('nav').classList.add("hide");
-  document.getElementById('nav').classList.remove("show");
+  // document.getElementById('nav').classList.add("hide");
+  // document.getElementById('nav').classList.remove("show");
   var menuButton = document.getElementById('menu-button');
-  menuButton.addEventListener("click", clickedMenuClose);
+  //menuButton.addEventListener("click", clickedMenuClose);
+  //document.getElementById('about').classList.toggle("hide");
+
 }
 //js for locations map
 // $(document).ready(function() {
@@ -215,7 +246,7 @@ function showPosition(position) {
 //calculating distace from the current pos and the available locations in the list
 function findNearest() {
   var newScene;
-  var minDistance = 5; // distance of x km
+  var minDistance = 1; // distance of x km
   scenes.forEach(item => {
     var dist = calcDistance(item.lng, item.lat, activeGPSlongitude, activeGPSlatitude);
     //console.log(dist +"=distance");
@@ -223,6 +254,10 @@ function findNearest() {
       minDistance = dist;
       newScene = item;
       console.log(" yes");
+    } else {
+      // minDistance = 3.5;
+      // currentScene = { id:'empty'};
+      //updateScene();
     }
   });
   if (newScene) {
@@ -230,6 +265,14 @@ function findNearest() {
       currentScene = newScene;
       updateScene();
     }
+  } else{
+    console.log(" no");
+    var mapImage = "scenes/empty/1.png";
+    var mapImageSource = document.getElementById('change-img');
+    mapImageSource.src = mapImage;
+
+    document.getElementById('tempInfo').innerHTML = "Visit map section to see the closest available location.";
+
   }
 }
 
@@ -264,7 +307,7 @@ function updateScene() {
   var audio = document.getElementById('audio');
   var source = document.getElementById('audioSource');
   //source.src = elm.getAttribute('data-value');
-  var sourceLinkAudio = "sound/" + currentScene.id + "/" + "1.mp3";
+  var sourceLinkAudio = "scenes/" + currentScene.id + "/" + "1.mp3";
   source.src = sourceLinkAudio;
   audio.load();
   audio.play();
@@ -289,7 +332,7 @@ function updateScene() {
     //for(var index = 0; index < idLocations.length; index++) {
     //  if(idLocations[index] = currentScene.id){
     matchyIndex = idLocations.indexOf(currentScene.id);
-    console.log(matchyIndex);
+    console.log(matchyIndex + "matchyindex");
     //     console.log(idLocations[index] + " idLocations[index]");
     //     console.log(currentScene.id + " currentScene.id");
     //     console.log(index + " index");

@@ -91,7 +91,7 @@ button {
   display: none;
 }
 .active{
-  color: burlywood;
+  color: #484848;
 }
 /* This applies from 0px to 768px */
 html{
@@ -148,14 +148,15 @@ height: 100px; */
   } */
 .navbar__menu {
       /* font-family: Arthemys; */
-      font-family: 'Noto Serif JP', serif;
+      /* font-family: 'Noto Serif JP', serif; */
+      font-family: 'Open Sans', sans-serif;
       text-transform: uppercase;
       line-height: 1em;
       color: inherit;
       display: flex;
       position: relative;
       align-items: center;
-      font-size: .9em;
+      font-size: .98em;
       color: #A0B2C4;
   }
 #nav{
@@ -187,12 +188,20 @@ height: 100px; */
    height: 90vh;
 }
 #about h3{
-  font-family: 'Noto Serif JP', serif;
+  /* font-family: 'Noto Serif JP', serif; */
+  font-family: 'Open Sans', sans-serif;
   font-weight: initial;
   font-size: 2em;
 
 }
 /* locations info */
+#locations_button{
+  color: #A0B2C4;
+  cursor:pointer;
+}
+#infoSwitcherUI{
+  cursor: pointer;
+}
 #locations{
   margin-top: 7vh;
   height: 93vh;
@@ -202,8 +211,18 @@ height: 100px; */
   /* max-height: 90vh;
   max-width: 90vw; */
 }
+#buttonsLocations{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  z-index: 99;
+}
+#buttonsLocations img{
+  height: 3rem;
+}
 #map-container{
-  width: 98vw;
+  /* width: 98vw; */
+  width: 100vw;
   height: 98vh;
   margin-left: auto;
   margin-right: auto;
@@ -213,6 +232,8 @@ height: 100px; */
 #map-container img{
   /* width: 2vh; */
   height: 93vh;
+  cursor:pointer;
+  /* position: absolute; */
 }
 /* rest of content with interchanging content */
 #content{
@@ -337,7 +358,8 @@ img {
 
 #header {
   /* font-family: 'Arthemys'; */
-  font-family: 'Noto Serif JP', serif;
+  /* font-family: 'Noto Serif JP', serif; */
+  font-family: 'Open Sans', sans-serif;
 }
 
 #logo {

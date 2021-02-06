@@ -14,6 +14,7 @@
 	<meta name="keywords" content="sound recording Rotterdam space walk" />
 	<meta name="author" content="Hyunji Jung" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv=”Refresh” content=”0;URL=https://www.phantasmauris.xyz” />
 
 
 	<link rel="stylesheet" type="text/css" href="css/default.css" /> <!-- UPDATE_FOR_USE? -->
@@ -51,15 +52,15 @@
 				<div class="navbar__right-items">
 					<button class="navbar__menu js-nav-btn" id="menu-button">
 						<span id="js-nav-close"  class="js-nav-close hide" > CLOSE </span>
-						<span id="js-nav-open" class="js-nav-open"> MENU </span>
+						<span id="js-nav-open" class="js-nav-open"> ABOUT </span>
 					</button>
 				</div>
 			</div>
 
 			<div id="nav">
 				<ul>
-					<li><span id="about_button">ABOUT</span></li>
-					<li><span id="locations_button">LOCATIONS</span></li>
+					<!-- <li><span id="about_button">ABOUT</span></li> -->
+					<!-- <li><span id="locations_button">LOCATIONS</span></li> -->
 				</ul>
 			</div>
 			<!-- NAV CLOSE -->
@@ -69,13 +70,17 @@
 
 			<div id="about-content">
 				<h3>Phantasmauris</h3>
-	    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus molestie mauris sem, ac fermentum arcu venenatis non. Donec eleifend arcu et ligula placerat, at consectetur sem ornare. Maecenas mattis suscipit ligula, eget tristique urna scelerisque et. Nulla facilisi. Mauris et erat sed leo dapibus semper. Fusce iaculis elit sit amet lacus tempor sagittis. Sed sed elit eget ligula sodales ornare. Sed blandit purus nunc, sed sodales eros mattis id. </p>
-				<p> Curabitur eu vehicula dui. Sed bibendum massa dolor, eget blandit turpis iaculis vel. Curabitur mattis eros in mi sodales suscipit. Sed vehicula iaculis lacus. Praesent tincidunt elit ut ante scelerisque tempus. Phasellus metus lacus, rutrum nec iaculis a, sagittis nec erat. Quisque iaculis maximus dictum. In ipsum sapien, dictum at porttitor sed, sollicitudin vel dui. Mauris at urna a nisi elementum pretium. Sed rutrum augue vitae leo scelerisque feugiat. Donec sit amet quam nibh. Cras malesuada libero purus, at tristique augue egestas a. </p>
+				<p> Phantasmauris is a location-based electroacoustic composition consists of five tracks. Developed as an aural augmented reality platform, audiences can listen to different soundscapes in each suggested location. </p>
+				<p> Each track is arranged with field recordings and their digitally processed signals based on the correlations between sound, space and listeners. The sounds are recorded in quarantined Rotterdam to explore the shifted sonic quality of the city. </p>
+				<p> The project combines the psychogeopraphic process of cartography and composition in a form of acousmatic music in the spectromorphological perspective. </p>
+
 				<p> Phantasmauris is a project by
 					<a href="https://hyunjijung.com/" target="_blank">Hyunji Jung.</a>
 					<br> Supported by CBK Rotterdam, 2020 <br>
 					<span style="font-size:0.7rem">Design by
-						<a href="https://noemibiro.com/" target="_blank">Noemi Biro</a></span>
+						<a href="https://noemibiro.com/" target="_blank">Noemi Biro</a>
+					</span></p>
+				<h3 id="locations_button">Locations map</h3>
 			</div>
 			<div id="about-img">
 				<img src="img/loading-clearer-s.jpg">
@@ -83,8 +88,15 @@
 		</div>
 		<!-- Locations -->
 		<div id="locations" class="hide">
+			<div id="buttonsLocations">
+				<img src="img/buttons-01.png"/>
+				<div id="locationsInfo" >
+					<img id="infoSwitcherUI" src="img/buttons-02.png"/>
+				</div>
+			</div>
 			<div id="map-container">
-				<img src="img/map-grey.jpg"/>
+				<img id="oldimg" src="img/map-grey.jpg"/>
+				<img id="infoMap" class="hide" src="img/map-info.jpg"/>
 			</div>
 		</div>
 		<!-- CONTENT OPEN -->
@@ -102,7 +114,7 @@
 				</div>
 			</div>
 			<div id="audio-wrapper">
-				<audio id="audio" controls="controls">
+				<audio id="audio" controls="controls" loop>
 					<source id ="audioSource" src=" " type="audio/mp3">
 				</audio>
 			</div>
