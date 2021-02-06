@@ -83,6 +83,7 @@ button {
     border: 0;
     cursor: pointer;
     tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 /* css properties general */
 .show{
@@ -130,6 +131,7 @@ height: 100px; */
     z-index: 9;
     background-color: white;
     tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .navbar__right-items {
     display: flex;
@@ -200,10 +202,12 @@ height: 100px; */
   color: #A0B2C4;
   cursor:pointer;
   tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #infoSwitcherUI{
   cursor: pointer;
   tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #locations{
   margin-top: 7vh;
@@ -318,6 +322,7 @@ li a {
   font-size: 2em;
   line-height:1.4em;
   tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
 }
 li span{
@@ -334,6 +339,7 @@ a {
 text-decoration: none;
 color: #A0B2C4;
 tap-highlight-color: transparent;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 a:link {
