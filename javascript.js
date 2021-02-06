@@ -50,6 +50,10 @@ window.addEventListener("load", function(){
   enterButton.classList.toggle("hide");
   enterButton.addEventListener("click", function(){
     document.body.removeChild(load_screen);
+
+    // var context = new AudioContext();
+    var audio = document.getElementById('audio');
+    audio.play();
   });
 });
 
@@ -67,6 +71,26 @@ window.onload = function() {
   locationsInfoButton.addEventListener("click", clickedI);
   document.getElementById('js-nav-open').classList.toggle("show");
   document.getElementById('nav').classList.toggle("hide");
+
+  //listening to the width of the load_screen
+  var x = window.matchMedia("(min-width: 768px)");
+  resizeFunc(x); // Call listener function at run time
+  x.addListener(resizeFunc); // Attach listener function on state changes
+}
+
+//screen width based resize
+function resizeFunc(x) {
+  if (x.matches) { // If media query matches
+    //desktop
+    // var loadImage = "img/" + "loader-web.png";
+    // var loadImageSource = document.getElementById('imageLoaderSwitcher');
+    // loadImageSource.src = loadImage;
+    //
+    // document.getElementById('loading').innerHTML = "Hi! This project was developed for a trasportable device. You can still visit, but we recommend you explore outside with your mobile. <br>Please allow GPS location and audio output.";
+  } else {
+    //mobile / transport
+
+  }
 }
 
 //js nav menu ui & ux
@@ -129,12 +153,7 @@ function clickedI() {
 
 }
 
-function clickedMenuClose() {
-  document.getElementById('about').classList.add("hide");
-  document.getElementById('locations').classList.add("hide");
-  document.getElementById('content').classList.toggle("hide");
-  console.log("still");
-}
+
 
 function clickedLocations(){
   document.getElementById('locations').classList.toggle("hide");
@@ -179,6 +198,19 @@ function clickCounter() {
     // infoWindow();
     document.getElementById("load_screen").classList.add('show');
     document.getElementById("load_screen").classList.remove('hide');
+
+    var x = window.matchMedia("(min-width: 768px)");
+    if (x.matches) { // If media query matches
+      //desktop
+      var loadImage = "img/" + "loader-web.png";
+      var loadImageSource = document.getElementById('imageLoaderSwitcher');
+      loadImageSource.src = loadImage;
+
+      document.getElementById('loading').innerHTML = "Hi! This project was developed for a trasportable device. You can still visit, but we recommend you explore outside with your mobile. <br>Please allow GPS location and audio output.";
+    } else {
+      //mobile / transport
+
+    }
   } else {
     var load_screen = document.getElementById("load_screen");
     document.body.removeChild(load_screen);
@@ -263,6 +295,7 @@ function findNearest() {
   if (newScene) {
     if (currentScene.id != newScene.id) {
       currentScene = newScene;
+      document.getElementById('audio').classList.remove('hide');
       updateScene();
     }
   } else{
@@ -272,7 +305,7 @@ function findNearest() {
     mapImageSource.src = mapImage;
 
     document.getElementById('tempInfo').innerHTML = "Visit map section to see the closest available location.";
-
+    document.getElementById('audio').classList.add('hide');
   }
 }
 

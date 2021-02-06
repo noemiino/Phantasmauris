@@ -65,7 +65,8 @@ div#load_screen > div#loading{
 }
 #enter-website-button{
     /* font-family: 'Arthemys'; */
-    font-family: 'Noto Serif JP', serif;
+    /* font-family: 'Noto Serif JP', serif; */
+    font-family: 'Open Sans', sans-serif;
     font-size: 2.9em;
     color: #A0B2C4;
     /* width: 25vw;
@@ -241,6 +242,8 @@ height: 100px; */
   height: 93vh;
   cursor:pointer;
   /* position: absolute; */
+  tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #infoMap{
   tap-highlight-color: transparent;
@@ -289,9 +292,12 @@ height: 100px; */
   /* height: 7vh; */
   align-self: center;
   border-radius: 25px;
+  tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #audioSource{
-
+  tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #audiostyle{
   bottom: 2vh;
@@ -419,8 +425,76 @@ img {
 }
 /* From 768px wide onwards  */
 @media screen and (min-width: 768px) {
+  html {
+  --scrollbarBG: #CFD8DC;
+  --thumbBG: #90A4AE;
+}
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  font-size: 20px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+  /* body{
+    font-size: 20px;
+  } */
+  #load_screen{
+    width: 100vw;
+  }
+  #load-img{
+    display: flex;
+    justify-content: center;
+  }
+  #load-img img{
+    height: 65vh;
+    width: auto;
+  }
+  #loading{
+    /* margin-top: 40vh; */
+    /* border: 0.5px solid;
+    border-radius: 245px; */
+    /* padding-top: 3vh;
+    padding-bottom: 3vh; */
+    margin-top: -80vh;
+    width: 50vw;
+  }
+  #div-enter{
+    margin-top: 80vh;
+  }
+  #temp{
+    margin-top: 12vh;
+  }
   #static img{
     height: 75vh;
+    width: auto;
+  }
+  #about-content{
+    overflow: auto;
+    width: 40vw;
+    font-size: 1.2em;
+  }
+  #about-img img{
+    height: initial;
+  }
+  #map-container img{
+    width: 100vw;
+    height: auto;
+  }
+  #scrollButton{
+    display: none;
+  }
+  #buttonsLocations img{
+    padding-left: 2vw;
   }
   .navbar__menu:hover{
     color: black;
@@ -428,4 +502,5 @@ img {
   li a:hover {
     color: burlywood;
   }
+
 }

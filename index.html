@@ -18,16 +18,21 @@
 
 
 	<link rel="stylesheet" type="text/css" href="css/default.css" /> <!-- UPDATE_FOR_USE? -->
+	<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/simplebar@2.4.3/dist/simplebar.css"
+	/>
 	<link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="javascript.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/simplebar@2.4.3/dist/simplebar.min.js"></script>
 </head>
 
 <body>
 	<!-- Loader -->
 	<div id="load_screen">
 		<div id="load-img">
-			<img src="img/loading-s.png">
+			<img id="imageLoaderSwitcher" src="img/loading-s.png">
 		</div>
 		<div id="contain-load-flex">
 			<div id="loading">Hi! This project uses GPS location and audio output. Please allow.
@@ -66,7 +71,7 @@
 			<!-- NAV CLOSE -->
 		</div> <!-- HEADER CLOSE -->
 		<!-- About page -->
-		<div id="about" class="hide">
+		<div id="about"  class="hide">
 
 			<div id="about-content">
 				<h3>Phantasmauris</h3>
@@ -77,7 +82,7 @@
 				<p> Phantasmauris is a project by
 					<a href="https://hyunjijung.com/" target="_blank">Hyunji Jung.</a>
 					<br> Supported by CBK Rotterdam, 2020 <br>
-					<span style="font-size:0.7rem">Design by
+					<span style="font-size:0.7em">Design by
 						<a href="https://noemibiro.com/" target="_blank">Noemi Biro</a>
 					</span></p>
 				<h3 id="locations_button">Locations map</h3>
@@ -89,7 +94,7 @@
 		<!-- Locations -->
 		<div id="locations" class="hide">
 			<div id="buttonsLocations">
-				<img src="img/buttons-01.png"/>
+				<img id="scrollButton" src="img/buttons-01.png"/>
 				<div id="locationsInfo" >
 					<img id="infoSwitcherUI" src="img/buttons-02.png"/>
 				</div>
