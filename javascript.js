@@ -20,24 +20,24 @@ var idLocations = [
                     "Rotterdam-Centraal-station",
                     "Rotterdam-Noord-station",
                     "Ro",
-                    "Korea",
+                    //"Korea",
                     "empty"];
 var infoLocations = [
-                      "Turbulent Stream (Quarantine beach)",
+                      "Turbulent Stream", // (Quarantaineterrein)
                       // "This is where the studio is",
-                      "Turbulent Stream (Waalhaven)",
-                      "Residual (Breeplein)",
-                      "Residual (Mosque West)",
-                      "Night Ride (Het Park)",
-                      "Night Ride (Maastunnel)",
-                      "Night Ride (Kralingse Bos)",
-                      "Passage (Nieuwe Binnenweg)",
-                      "Residual (Laurenskerk)",
-                      "Passage (Witte de Withstraat / Westblaak)",
-                      "Velocity of Traverse (Central station)",
-                      "Velocity of Traverse (Noord station)",
+                      "Turbulent Stream", // (Waalhaven)
+                      "Residual",// (Breepleinkerk)
+                      "Residual",// (Mevlana Moskee)
+                      "Night Ride",// (Het Park)
+                      "Night Ride",// (Maastunnel)
+                      "Night Ride",// (Kralingse Bos)
+                      "Passage",// (Nieuwe Binnenweg)
+                      "Residual",// (Laurenskerk)
+                      "Passage",// (Witte de Withstraat / Westblaak)
+                      "Velocity of Traverse",// (Rotterdam Centraal)
+                      "Velocity of Traverse",// (Rotterdam Noord)
                       "Romania, where Noemi is",
-                      "Korea, this is where Hyunji is",
+                      //"Korea, this is where Hyunji is",
                       "Visit map section to see the closest available location."];
 
 
