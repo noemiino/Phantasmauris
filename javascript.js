@@ -20,7 +20,7 @@ var idLocations = [
                     "Rotterdam-Centraal-station",
                     "Rotterdam-Noord-station",
                     "Ro",
-                    //"Korea",
+                    "Korea",
                     "empty"];
 var infoLocations = [
                       "Turbulent Stream", // (Quarantaineterrein)
@@ -37,7 +37,7 @@ var infoLocations = [
                       "Velocity of Traverse",// (Rotterdam Centraal)
                       "Velocity of Traverse",// (Rotterdam Noord)
                       "Romania, where Noemi is",
-                      //"Korea, this is where Hyunji is",
+                      "Korea, this is where Hyunji is",
                       "Visit map section to see the closest available location."];
 
 

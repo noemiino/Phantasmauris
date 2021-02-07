@@ -204,6 +204,7 @@ height: 100px; */
   cursor:pointer;
   tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  margin-bottom: 30vh;
 }
 #infoSwitcherUI{
   cursor: pointer;
