@@ -58,6 +58,10 @@ window.addEventListener("load", function(){
 });
 
 window.onload = function() {
+  if(window.location.protocol != 'https:') {
+    location.href =   location.href.replace("http://", "https://");
+  }
+
   clickCounter();
   getLocation();
   getScenes();
@@ -76,6 +80,9 @@ window.onload = function() {
   var x = window.matchMedia("(min-width: 768px)");
   resizeFunc(x); // Call listener function at run time
   x.addListener(resizeFunc); // Attach listener function on state changes
+
+  var audio = document.getElementById('audio');
+  audio.play();
 }
 
 //screen width based resize

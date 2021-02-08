@@ -213,7 +213,7 @@ height: 100px; */
 }
 #locations{
   margin-top: 7vh;
-  height: 93vh;
+  height: 99vh; //was 93
 }
 #locations img{
   /* height: 100vh; */
@@ -283,12 +283,13 @@ height: 100px; */
 #audio-wrapper{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   width: 100vw;
+  height: 40vh;
 }
 #audio{
   /* background-color: #A0B2C4; */
-  bottom: 15vh;
+  /* bottom: 25vh; */
   position: absolute;
   /* height: 7vh; */
   align-self: center;
@@ -474,6 +475,9 @@ body::-webkit-scrollbar-thumb {
   }
   #temp{
     margin-top: 12vh;
+  }
+  #audio{
+    bottom: 15vh;
   }
   #static img{
     height: 75vh;
